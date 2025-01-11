@@ -2,11 +2,12 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include "Window.h"
 
 class Nonogram {
 private:
 	int size;
-	int matr[10][10];
+//	int matr[10][10];
 	std::string kod;
 	std::vector<int> vec;
 public:
@@ -87,7 +88,7 @@ public:
 		}
 	}*/
 
-	void testmatrispuni(Nonogram& nono)
+/*	void testmatrispuni(Nonogram& nono)
 	{
 		int col, row, t = 0;
 		for (row = 0; row < nono.size; row++)
@@ -101,9 +102,9 @@ public:
 				t++;
 			}
 		}
-	}
+	}*/
 
-	void ispisi_matr(Nonogram nono)
+/*	void ispisi_matr(Nonogram nono)
 	{
 		int col, row, t = 0;
 		for (row = 0; row < nono.size; row++)
@@ -114,7 +115,7 @@ public:
 			}
 			std::cout << std::endl;
 		}
-	}
+	}*/
 
 	void ispuni_vektor(Nonogram& nono)
 	{
@@ -129,8 +130,8 @@ public:
 			for (int j = 0; j < bin_len; j++)
 			{
 				vec[size * size - (i * bin_len) + j - bin_len] = red % 2;			//ispunjava blokove po 5 obrnuti redoslijedom, od zada
-				red /= 2;															// 1 -> 10000 -> reverse() -> 00001
-			}																		// 13 -> 11000 10000 -> reverse() -> 00001 00011
+				red /= 2;									// 1 -> 10000 -> reverse() -> 00001
+			}											// 13 -> 11000 10000 -> reverse() -> 00001 00011
 		}
 		std::reverse(vec.begin(), vec.end());
 		nono.vec = vec;
@@ -179,67 +180,37 @@ std::string bin_pretvorba_string()
 
 
 int main()
-{	
+{
+	std::cout << "Creating Window\n";
+
+	Window* pWindow = new Window();
+
+	bool running = true;
+	while (running)
+	{
+		if (!pWindow->ProcessMessages())
+		{
+			std::cout << "Closing Window\n";
+			running = false;
+		}
+
+		//Render
+
+		Sleep(20);
+	}
+
+	delete pWindow;
+
+
+	/*
 	Nonogram Nono;
-
-
 	Nono.velicina(Nono);
-
-//	Nono.ispuni(Nono);
-//	Nono.testmatrispuni(Nono);
-// 
-//	std::string bin = "FGGGJ";
-//	std::string bin = "RSTUfghijklmnopqrstu";
-
 	Nono.unos_kod(Nono);
 	Nono.ispuni_vektor(Nono);
 	Nono.ispisi_vektor(Nono);
 
-
-	
-
-/*	int t;
-	std::string a = "FGHIJKLMNOPQRSTUfghijklmnopqrstu";
-	for (int i = 0; i < a.size(); i++)
-	{
-		t = (int)a[i] - 70;
-		if (t > 31 && t < 48)
-			t -= 16;
-		std::cout << t << " " << a[i] << std::endl;
-	}*/
-
-	
-
-/*	
-	0000001010000001000101110
-	0 0 0 0 0
-	0 1 0 1 0 
-	0 0 0 0 0 
-	1 0 0 0 1 
-	0 1 1 1 0
-
-	1111110001101011000111111
-	1 1 1 1 1 
-	1 0 0 0 1 
-	1 0 1 0 1 
-	1 0 0 0 1 
-	1 1 1 1 1
-
-	1101110101011101010111011
-	1 1 0 1 1 
-	1 0 1 0 1 
-	0 1 1 1 0 
-	1 0 1 0 1 
-	1 1 0 1 1 
-
-	1101111111111110111000100
-	1 1 0 1 1
-	1 1 1 1 1 
-	1 1 1 1 1 
-	0 1 1 1 0 
-	0 0 1 0 0
-
 	*/
+	
 
 
 	return 0;
