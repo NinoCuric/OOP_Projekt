@@ -4,9 +4,7 @@
 
 ### 5X5
 
-AFTAF   
-ugkWe
-gWtgw
+AFTAF   ugkWe     gWtgw
 
 akTkq
 
