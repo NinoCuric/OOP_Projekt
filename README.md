@@ -1,6 +1,6 @@
 # Nonogram
-potrebno je pokrenuti Nonogram.exe
-Nakon pokretanja tri su opcije za dimenzije Nonograma, "Back" za vratiti se na odabir dimenzija
+potrebno je pokrenuti Nonogram.exe  
+Nakon pokretanja tri su opcije za dimenzije Nonograma, "Back" za vratiti se na odabir dimenzija  
 U Input window kopirati jedan od ispod kodova ovisno o odabranim dimenzijama
 
 ## 5X5
