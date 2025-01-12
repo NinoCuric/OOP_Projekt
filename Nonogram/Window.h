@@ -28,6 +28,7 @@ private:
 	void ClearButtons();
 	void CreateGrid(int size);
 	void ClearGrid();
+	void CheckWinCon();
 
 	HINSTANCE m_hInstance;
 	HWND m_hWnd;
@@ -40,6 +41,8 @@ private:
 	Nonogram* m_nonogram;
 	std::vector<std::vector<HWND>> m_gridButtons;
 	std::vector<int> m_playerState;
+	std::vector<HWND> m_verticalHints;
+	std::vector<HWND> m_horizontalHints;
 	HBRUSH m_emptyBrush;
 	HBRUSH m_filledBrush;
 };

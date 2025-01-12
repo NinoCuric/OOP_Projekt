@@ -13,7 +13,15 @@ public:
 
 	void LoadFromCode(const std::string& code);
 
-	void Ispis();
+	void Ispis() const;
 
 	int GetSize() const;
+
+	void IspuniVektor();
+	void IspisiVektor() const;		//test na konzoli
+
+	std::vector<std::vector<int>> Puzzle();
+	
+
+	bool CheckSolution(const std::vector<int>& playerState) const;
 };

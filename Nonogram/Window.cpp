@@ -169,11 +169,12 @@ void Window::HandleButtonClick(int buttonID)
 	{
 		int index = buttonID - 1000;
 		int state = GetGridState(index);
-
 		SetGridState(index, (state == 1) ? 0 : 1);
 
 		HWND button = m_gridButtons[index / m_nonogram->GetSize()][index % m_nonogram->GetSize()];
 		InvalidateRect(button, NULL, TRUE);
+
+		CheckWinCon();
 	}
 }
 
@@ -381,6 +382,56 @@ void Window::CreateGrid(int size)
 
 	const int buttonSize = 30;
 	const int padding = 1;
+	const int hintOffset = 50;
+
+	std::vector<std::vector<int>> hints = m_nonogram->Puzzle();
+	const std::vector<int>& horizontalHints = hints[0];
+	const std::vector<int>& verticalHints = hints[1];
+
+	for (int col = 0, i = 0; col < size; col++)
+	{
+		int yOffset = 0;
+		while (i < verticalHints.size() && verticalHints[i] != 0)
+		{
+			HWND hintLabel = CreateWindow(
+				L"STATIC",
+				std::to_wstring(verticalHints[i]).c_str(),
+				WS_VISIBLE | WS_CHILD | SS_CENTER,
+				100 + hintOffset + col * (buttonSize + padding), 80 + yOffset,
+				buttonSize, 20,
+				m_hWnd,
+				NULL,
+				m_hInstance,
+				NULL
+			);
+			m_verticalHints.push_back(hintLabel);
+			yOffset += 15;
+			i++;		//next value
+		}
+		i++;			//skip 0
+	}
+	for (int row = 0, i = 0; row < size; row++)
+	{
+		int xOffset = 0;
+		while (i < horizontalHints.size() && horizontalHints[i] != 0)
+		{
+			HWND hintLabel = CreateWindow(
+				L"STATIC",
+				std::to_wstring(horizontalHints[i]).c_str(),
+				WS_VISIBLE | WS_CHILD | SS_CENTER,
+				hintOffset + xOffset - 20, 205 + row * (buttonSize + padding),
+				20, buttonSize-10,
+				m_hWnd,
+				NULL,
+				m_hInstance,
+				NULL
+				);
+			m_horizontalHints.push_back(hintLabel);
+			xOffset += 15;
+			i++;			//next value
+		}
+		i++;			//skip 0
+	}
 
 	for (int row = 0; row < size; row++)
 	{
@@ -411,7 +462,21 @@ void Window::ClearGrid()
 		}
 	}
 	m_gridButtons.clear();
+
+	for (HWND hint : m_verticalHints)
+	{
+		DestroyWindow(hint);
+	}
+	m_verticalHints.clear();
+	for (HWND hint : m_horizontalHints)
+	{
+		DestroyWindow(hint);
+	}
+	m_horizontalHints.clear();
+
 	m_playerState.clear();
+
+	InvalidateRect(m_hWnd, NULL, TRUE);
 }
 
 HWND Window::GetGridButton(int row, int col) const
@@ -448,4 +513,19 @@ void Window::SetGridState(int index, int state)
 HBRUSH Window::GetBrushForState(int state) const
 {
 	return (state == 1) ? m_filledBrush : m_emptyBrush;
+}
+
+void Window::CheckWinCon()
+{
+	if (m_nonogram && m_nonogram->CheckSolution(m_playerState))
+	{
+		MessageBox(m_hWnd, L"Nonogram Solved!", L"Game Won!", MB_OK | MB_ICONINFORMATION);
+		for (auto& row : m_gridButtons)
+		{
+			for (HWND button : row)
+			{
+				EnableWindow(button, FALSE);
+			}
+		}
+	}
 }
