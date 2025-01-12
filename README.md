@@ -4,7 +4,10 @@
 Kodovi:
 
 ### 5X5
-  Tutorial:  AFTAF  ugkWe  gWtgw
+  Tutorial:
+  AFTAF  
+  ugkWe  
+  gWtgw  
 
 akTkq  
 queTJ  
