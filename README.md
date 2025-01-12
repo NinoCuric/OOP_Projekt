@@ -1,7 +1,7 @@
-# OOP_Projekt
-
-
-Kodovi:
+# Nonogram
+potrebno je pokrenuti Nonogram.exe
+Nakon pokretanja tri su opcije za dimenzije Nonograma, "Back" za vratiti se na odabir dimenzija
+U Input window kopirati jedan od ispod kodova ovisno o odabranim dimenzijama
 
 ## 5X5
   Tutorial:  
@@ -22,6 +22,6 @@ FUIgHMIoCGHMTUtUtLRA
 
 ## 15X15
 
-uuufFGhFOmTskPkkPkkPkhPOfPGfqGgFgkuklFSguguqu  
-FGuMIGQluuslMurGunIiFLofSttsommgUmGttGrrFnNFf  
-FIFIKFHkFHkFHsRHSPGGPKoPjOpkOHSNLTOrROFuouuou  
+ueuvFGhFOmTskPkkPkkPkhPOfPGVqGgFgkuklFSgugequ  
+FGuMIGQluuslMurGunIiFLofSttsommgUmGdtGbrFnNFf  
+FIAIKFHkFHkFHsRHSPGGPKoPjOpkOHSNLTOrROFuoueou  
