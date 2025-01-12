@@ -18,10 +18,8 @@ FPAgT
 
 ### 10X10
 
-nURLTLULUlStRtRTRLtI
-
-TTuemsyooismUtMrInGf
-
+nURLTLULUlStRtRTRLtI  
+TTuemsyooismUtMrInGf  
 FUIgHMIoCGHMTUtUtLRA
 
 ### 15X15
