@@ -17,7 +17,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		if (pDIS->CtlType == ODT_BUTTON) {		//if grid button
 			HWND button = pDIS->hwndItem;
 
-			if (pWindow) {								
+			if (pWindow) {
 				int buttonID = GetDlgCtrlID(button);
 				int size = pWindow->GetNonogram()->GetSize();
 				int index = buttonID - 1000;
@@ -159,9 +159,9 @@ void Window::HandleButtonClick(int buttonID)
 
 		SetWindowText(m_textBox, L"");
 
-		if (m_nonogram) 
+		if (m_nonogram)
 		{
-			std::cout << "Creating Grid" << std::endl;
+			std::cout << "Creating Grid:" << std::endl;
 			CreateGrid(m_nonogram->GetSize());
 		}
 	}
@@ -304,7 +304,7 @@ void Window::CreateResetButton()
 		NULL
 	);
 }
-void Window::CreateSubmitButtons() 
+void Window::CreateSubmitButtons()
 {
 	m_textBox = CreateWindow(
 		L"EDIT",
@@ -367,6 +367,7 @@ void Window::ClearButtons()
 	{
 		delete m_nonogram;
 		m_nonogram = nullptr;
+		std::cout << "Nonogram Cleared." << std::endl;
 	}
 
 	InvalidateRect(m_hWnd, NULL, TRUE);
@@ -420,12 +421,12 @@ void Window::CreateGrid(int size)
 				std::to_wstring(horizontalHints[i]).c_str(),
 				WS_VISIBLE | WS_CHILD | SS_CENTER,
 				hintOffset + xOffset - 20, 205 + row * (buttonSize + padding),
-				20, buttonSize-10,
+				20, buttonSize - 10,
 				m_hWnd,
 				NULL,
 				m_hInstance,
 				NULL
-				);
+			);
 			m_horizontalHints.push_back(hintLabel);
 			xOffset += 15;
 			i++;			//next value
@@ -476,6 +477,8 @@ void Window::ClearGrid()
 
 	m_playerState.clear();
 
+	DestroyWindow(m_victoryBanner);
+
 	InvalidateRect(m_hWnd, NULL, TRUE);
 }
 
@@ -519,6 +522,18 @@ void Window::CheckWinCon()
 {
 	if (m_nonogram && m_nonogram->CheckSolution(m_playerState))
 	{
+		std::cout << "Victory Achieved." << std::endl;
+		m_victoryBanner = CreateWindow(
+			L"STATIC",
+			L"PUZZLE SOLVED!",
+			WS_VISIBLE | WS_CHILD | SS_CENTER,
+			150, 20,
+			100, 35,
+			m_hWnd,
+			NULL,
+			m_hInstance,
+			NULL
+		);
 		MessageBox(m_hWnd, L"Nonogram Solved!", L"Game Won!", MB_OK | MB_ICONINFORMATION);
 		for (auto& row : m_gridButtons)
 		{

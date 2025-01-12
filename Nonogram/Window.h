@@ -19,7 +19,6 @@ public:
 	HWND GetGridButton(int row, int col) const;
 	Nonogram* GetNonogram() const;
 	int GetGridState(int index) const;
-	void SetGridState(int index, int state);
 	HBRUSH GetBrushForState(int state) const;
 private:
 	void CreateInitialButtons();
@@ -27,6 +26,7 @@ private:
 	void CreateSubmitButtons();
 	void ClearButtons();
 	void CreateGrid(int size);
+	void SetGridState(int index, int state);
 	void ClearGrid();
 	void CheckWinCon();
 
@@ -43,6 +43,7 @@ private:
 	std::vector<int> m_playerState;
 	std::vector<HWND> m_verticalHints;
 	std::vector<HWND> m_horizontalHints;
+	HWND m_victoryBanner;
 	HBRUSH m_emptyBrush;
 	HBRUSH m_filledBrush;
 };

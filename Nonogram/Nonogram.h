@@ -13,7 +13,7 @@ public:
 
 	void LoadFromCode(const std::string& code);
 
-	void Ispis() const;
+	void Ispis() const;				//Nonogram na konzoli
 
 	int GetSize() const;
 
@@ -21,7 +21,6 @@ public:
 	void IspisiVektor() const;		//test na konzoli
 
 	std::vector<std::vector<int>> Puzzle();
-	
 
 	bool CheckSolution(const std::vector<int>& playerState) const;
 };

@@ -1,6 +1,6 @@
 #include "Nonogram.h"
 
-Nonogram::Nonogram(int size, std::string kod) : size(size){}
+Nonogram::Nonogram(int size, std::string kod) : size(size) {}
 
 void Nonogram::LoadFromCode(const std::string& code)
 {
@@ -35,10 +35,10 @@ void Nonogram::LoadFromCode(const std::string& code)
 
 void Nonogram::Ispis() const
 {
-	std::cout << size << " " << kod << std::endl;
+	std::cout << "Nonogram: " << size << " " << kod << std::endl;
 }
 
-int Nonogram::GetSize() const 
+int Nonogram::GetSize() const
 {
 	return size;
 }
@@ -49,9 +49,11 @@ void Nonogram::IspuniVektor()
 	int red, bin_len = 5;									//bin_len, svako slovo odvojeno na komad od 5 bitova
 	for (int i = 0; i < kod.size(); i++)
 	{
-		red = (int)kod[i] - 70;				/////////////////////////////// UVATI DA SE NE BREAKA duzina bin veca od 5 za 5x5 i veca od 20 za 10x10
+		red = (int)kod[i] - 70;
 		if (red > 31 && red < 48)
 			red -= 16;
+		if (red < 0)
+			red += 5;
 
 		for (int j = 0; j < bin_len; j++)
 		{
@@ -63,7 +65,7 @@ void Nonogram::IspuniVektor()
 	vec = tvec;
 }
 
-void Nonogram::IspisiVektor() const		//test na konzoli
+void Nonogram::IspisiVektor() const				//console ispis
 {
 	for (int i = 0; i < size * size; i++)
 	{
@@ -82,7 +84,7 @@ std::vector<std::vector<int>> Nonogram::Puzzle()
 	for (int row = 0; row < size; row++)
 	{
 		vertcnt = 0, horcnt = 0;
-		for (int col = 0; col < size; col++) 
+		for (int col = 0; col < size; col++)
 		{
 			if (vec[row * size + col] == 1)
 				vertcnt++;
@@ -92,31 +94,33 @@ std::vector<std::vector<int>> Nonogram::Puzzle()
 				vertcnt = 0;
 			}
 
-			if(vec[col * size + row] == 1)
+			if (vec[col * size + row] == 1)
 				horcnt++;
-			else if(horcnt != 0)
+			else if (horcnt != 0)
 			{
 				horpuzzle.push_back(horcnt);
 				horcnt = 0;
 			}
 		}
-		if(vertcnt != 0)
+		if (vertcnt != 0)
 			vertpuzzle.push_back(vertcnt);
-		if(horcnt != 0)
+		if (horcnt != 0)
 			horpuzzle.push_back(horcnt);
-		vertpuzzle.push_back(0);			// 0 = new row or col
+		vertpuzzle.push_back(0);				// 0 = next row/col
 		horpuzzle.push_back(0);
 	}
 	puzzle.push_back(vertpuzzle);
 	puzzle.push_back(horpuzzle);
-	std::cout << "rows ";							//console ispis
+
+	std::cout << "rows " << std::endl;						//console ispis
 	for (int i = 0; i < puzzle.size(); i++) {
 		for (int j = 0; j < puzzle[i].size(); j++) {
 			std::cout << puzzle[i][j] << " ";
 		}
-		std::cout << std::endl << "cols ";
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	std::cout << "cols" << std::endl;
+
 	return puzzle;
 }
 
