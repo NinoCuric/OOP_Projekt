@@ -26,5 +26,8 @@ FUIgHMIoCGHMTUtUtLRA
 
 ### 15X15
 
-AJFAPFLwRMFrIgnKujNgHfwGNWHKujIgnMFrLwRAPFAJF
-GufIqnLqRUPtouytuUigouFuWAgVwGfTBNFCEAJHFNGuv
+uuufFGhFOmTskPkkPkkPkhPOfPGfqGgFgkuklFSguguqu
+
+FGuMIGQluuslMurGunIiFLofSttsommgUmGttGrrFnNFf
+
+FIFIKFHkFHkFHsRHSPGGPKoPjOpkOHSNLTOrROFuouuou
