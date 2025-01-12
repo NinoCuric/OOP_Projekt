@@ -53,8 +53,8 @@ bool bin_pretvorba_string()	{
 
 int main()
 {
-	while(bin_space());
-	while (bin_pretvorba_string());
+//	while(bin_space());
+//	while (bin_pretvorba_string());
 
 
 	std::cout << "\nCreating Window\n";
