@@ -4,18 +4,22 @@
 
 ## 5X5
 
-FFTFF
-FPFgT
-ugkgu
-ggtgg
+AFTAF
+FPAgT
+ugkWe
+gWtgw
 
-qkTkq
-quuTJ
+akTkq
+queTJ 
 PPkPk
 
 ## 10X10
 
-
+nURLTLULUlStRtRTRLtI
+TTuemsyooismUtMrInGf
+FUIgHMIoCGHMTUtUtLRA
 
 ### 15X15
 
+AJFAPFLwRMFrIgnKujNgHfwGNWHKujIgnMFrLwRAPFAJF
+GufIqnLqRUPtouytuUigouFuWAgVwGfTBNFCEAJHFNGuv
