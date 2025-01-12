@@ -3,7 +3,7 @@
 
 Kodovi:
 
-### 5X5
+## 5X5
   Tutorial:  
   AFTAF  
   ugkWe  
@@ -14,13 +14,13 @@ queTJ
 PPkPk  
 FPAgT  
 
-### 10X10
+## 10X10
 
 nURLTLULUlStRtRTRLtI  
 TTuemsyooismUtMrInGf  
 FUIgHMIoCGHMTUtUtLRA  
 
-### 15X15
+## 15X15
 
 uuufFGhFOmTskPkkPkkPkhPOfPGfqGgFgkuklFSguguqu  
 FGuMIGQluuslMurGunIiFLofSttsommgUmGttGrrFnNFf  
