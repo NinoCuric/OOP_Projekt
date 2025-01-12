@@ -5,11 +5,12 @@
 ## 5X5
 
 AFTAF
-FPAgT
 ugkWe
 gWtgw
 
 akTkq
+
+FPAgT
 
 queTJ 
 
