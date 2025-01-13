@@ -1,5 +1,7 @@
 /*
 
+	Alphabet and solutions below
+///////////////////////////////////////////////////
 
 
 
@@ -27,10 +29,20 @@
 
 
 
-	0								31
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+	Alphabet
+
+	0			       31
 	FGHIJKLMNOPQRSTUfghijklmnopqrstu //////////////////////////////////
-	ABCDE			VWXYZ	   abcde
-					vwxyz	   
+	ABCDE		VWXYZ	   abcde
+			vwxyz	  
+
 	int t;
 	std::string a = "FGHIJKLMNOPQRSTUfghijklmnopqrstu";
 	for (int i = 0; i < a.size(); i++)	{
